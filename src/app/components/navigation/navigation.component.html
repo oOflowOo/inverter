@@ -1,0 +1,30 @@
+<nav class="navbar-default navbar-static-side" role="navigation">
+    <div class="sidebar-collapse">
+        <ul class="nav metismenu" id="side-menu">
+            <li class="nav-header">
+                <div class="dropdown profile-element">
+                    <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                      <span class="clear">
+                          <span class="block m-t-xs">
+                                <strong class="font-bold">SWWCC</strong>
+                          </span>
+                      </span>
+                    </a>
+                </div>
+                <div class="logo-element">
+                    SWWCC
+                </div>
+            </li>
+            <li [ngClass]="{active: activeRoute('temperature')}">
+                <a [routerLink]="['./temperature']"><i class="fa fa-thermometer"></i> <span class="nav-label">Temperature</span></a>
+            </li>
+            <li [ngClass]="{active: activeRoute('battery')}">
+                <a [routerLink]="['./battery']"><i class="fa fa-dashboard"></i> <span class="nav-label">Battery</span></a>
+            </li>
+            <li [ngClass]="{active: activeRoute('throughput')}">
+                <a [routerLink]="['./throughput']"><i class="fa fa-area-chart"></i> <span class="nav-label">Throughput</span></a>
+            </li>
+        </ul>
+
+    </div>
+</nav>

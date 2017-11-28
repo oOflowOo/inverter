@@ -1,0 +1,40 @@
+<div class="wrapper wrapper-content">
+    <div class="row" id="sortable-view">
+        <div class="col-lg-6">
+            <div class="ibox" *ngFor="let site of throughput_list | evenodd:'odd'">
+                <div class="ibox-title">
+                    <h2>{{site.name}}</h2>
+                </div>
+                <div class="ibox-content" *ngIf="site.data" style="height: 300px">
+                    <ngx-charts-area-chart
+                            [scheme]="colorScheme"
+                            [results]="site.data"
+                            [xAxis]="true"
+                            [yAxis]="true"
+                            [autoScale]="false"
+                            [legend]="true"
+                            [timeline]="true">
+                    </ngx-charts-area-chart>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="ibox" *ngFor="let site of battery_list | evenodd:'even'">
+                <div class="ibox-title">
+                    <h2>{{site.name}}</h2>
+                </div>
+                <div class="ibox-content" *ngIf="site.data" style="height: 300px;margin-right:100px">
+                    <ngx-charts-area-chart
+                            [scheme]="colorScheme"
+                            [results]="site.data"
+                            [xAxis]="true"
+                            [yAxis]="true"
+                            [autoScale]="false"
+                            [legend]="true"
+                            [timeline]="true">
+                    </ngx-charts-area-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

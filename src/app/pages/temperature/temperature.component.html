@@ -1,0 +1,120 @@
+<div class="wrapper wrapper-content">
+    <div class="row" id="sortable-view">
+        <div class="col-lg-6">
+            <div class="ibox" *ngFor="let site of temperature_list | evenodd:'odd'">
+                <div class="ibox-title">
+                    <h2>{{site.name}}</h2>
+                </div>
+                <div class="row no-margins monitor-panel" *ngIf="site.data">
+                    <div class="col-md-3 no-padding">
+                        <div class="panel panel-success no-margins">
+                            <div class="panel-heading text-center" style="font-size: 30px;font-weight: 700">
+                                {{site.current}}°C
+                            </div>
+                            <div class="text-center">
+                                <h5>Current</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 no-padding">
+                        <div class="panel panel-warning no-margins">
+                            <div class="panel-heading text-center" style="font-size: 30px;font-weight: 700">
+                                {{site.avg}} °C
+                            </div>
+                            <div class="text-center">
+                                <h5>Average</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 no-padding">
+                        <div class="panel panel-primary no-margins">
+                            <div class="panel-heading text-center" style="font-size: 30px;font-weight: 700">
+                                {{site.min.value}} °C
+                            </div>
+                            <div class="text-center">
+                                <h5>Lowest at  <strong class="ng-binding">{{site.min.time}}</strong></h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 no-padding">
+                        <div class="panel panel-danger no-margins">
+                            <div class="panel-heading text-center" style="font-size: 30px;font-weight: 700">
+                                {{site.max.value}} °C
+                            </div>
+                            <div class="text-center">
+                                <h5>Highest at  <strong class="ng-binding">{{site.min.time}}</strong></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-content" *ngIf="site.data" style="height: 300px">
+                    <ngx-charts-line-chart
+                            [results]="site.data"
+                            [xAxis]="true"
+                            [yAxis]="true"
+                            [autoScale]="true"
+                            [timeline]="true">
+                    </ngx-charts-line-chart>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="ibox" *ngFor="let site of temperature_list | evenodd:'even'">
+                <div class="ibox-title">
+                    <h2>{{site.name}}</h2>
+                </div>
+                <div class="row no-margins monitor-panel" *ngIf="site.data">
+                    <div class="col-md-3 no-padding">
+                        <div class="panel panel-success no-margins">
+                            <div class="panel-heading text-center" style="font-size: 30px;font-weight: 700">
+                                {{site.current}}°C
+                            </div>
+                            <div class="text-center">
+                                <h5>Current</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 no-padding">
+                        <div class="panel panel-warning no-margins">
+                            <div class="panel-heading text-center" style="font-size: 30px;font-weight: 700">
+                                {{site.avg}} °C
+                            </div>
+                            <div class="text-center">
+                                <h5>Average</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 no-padding">
+                        <div class="panel panel-primary no-margins">
+                            <div class="panel-heading text-center" style="font-size: 30px;font-weight: 700">
+                                {{site.min.value}} °C
+                            </div>
+                            <div class="text-center">
+                                <h5>Lowest at  <strong class="ng-binding">{{site.min.time}}</strong></h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 no-padding">
+                        <div class="panel panel-danger no-margins">
+                            <div class="panel-heading text-center" style="font-size: 30px;font-weight: 700">
+                                {{site.max.value}} °C
+                            </div>
+                            <div class="text-center">
+                                <h5>Highest at  <strong class="ng-binding">{{site.min.time}}</strong></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="ibox-content" *ngIf="site.data" style="height: 300px;margin-right:10px">
+                    <ngx-charts-line-chart
+                            [results]="site.data"
+                            [xAxis]="true"
+                            [yAxis]="true"
+                            [autoScale]="true"
+                            [timeline]="true">
+                    </ngx-charts-line-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

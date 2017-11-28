@@ -1,0 +1,214 @@
+<div class="wrapper wrapper-content">
+    <div class="row" id="sortable-view">
+        <div class="col-lg-6">
+            <div class="ibox" *ngFor="let site of battery_list | evenodd:'odd'">
+                <div class="ibox-title">
+                    <h2>{{site.name}}</h2>
+                </div>
+                <div class="row no-margins monitor-panel">
+                    <div class="col-md-3 no-padding">
+                        <div class="panel panel-success no-margins">
+                            <div class="panel-heading text-center" style="font-size: 30px;font-weight: 700">
+                                {{site.cur_voltage}} V
+                            </div>
+                            <div class="text-center">
+                                <h5>Voltage</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!--add by hans.shi on 15/Sep/2017  -->
+                    
+                    <div class="col-md-3 no-padding">
+                        <div class="panel panel-success no-margins">
+                            <div class="panel-heading text-center" style="font-size: 30px;font-weight: 700">
+                                {{site.tobedecided}}?
+                            </div>
+                            <div class="text-center">
+                                <h5> ??? </h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 no-padding">
+                        <div class="panel panel-success no-margins">
+                            <div class="panel-heading text-center" style="font-size: 30px;font-weight: 700">
+                                {{site.solar_power}} W
+                            </div>
+                            <div class="text-center">
+                                <h5>Solar Power</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 no-padding">
+                        <div class="panel panel-warning no-margins">
+                            <div class="panel-heading text-center" style="font-size: 30px;font-weight: 700">
+                                {{site.solar_current}} A
+                            </div>
+                            <div class="text-center">
+                                <h5>Solar Current</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- hans.shi finish  15/Sep/2017 #-->
+                    <div class="col-md-3 no-padding">
+                        <div class="panel panel-warning no-margins">
+                            <div class="panel-heading text-center" style="font-size: 30px;font-weight: 700">
+                                {{site.cur_current}} A
+                            </div>
+                            <div class="text-center">
+                                <h5>Current</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 no-padding">
+                        <div class="panel panel-primary no-margins">
+                            <div class="panel-heading text-center" style="font-size: 30px;font-weight: 700">
+                                {{site.soc}} %
+                            </div>
+                            <div class="text-center">
+                                <h5>State of Charge</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 no-padding">
+                        <div class="panel panel-danger no-margins">
+                            <div class="panel-heading text-center" style="font-size: 30px;font-weight: 700">
+                                {{site.relay? 'ON':'OFF'}}
+                            </div>
+                            <div class="text-center">
+                                <h5>Relay</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!--add by hans.shi on 15/Sep/2017  -->
+                    <div class="col-md-3 no-padding">
+                        <div class="panel panel-danger no-margins">
+                            <div class="panel-heading text-center" style="font-size: 30px;font-weight: 700">
+                                {{site.ip_device? 'ON':'OFF'}}
+                            </div>
+                            <div class="text-center">
+                                <h5>IP Device</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- hans.shi finish  15/Sep/2017 #-->
+                </div>
+                <div class="ibox-content" *ngIf="site.data" style="height: 300px">
+                    <ngx-charts-line-chart
+                            [scheme]="colorScheme"
+                            [results]="site.data"
+                            [xAxis]="true"
+                            [yAxis]="true"
+                            [legend]="true"
+                            [autoScale]="false"
+                            [timeline]="true">
+                    </ngx-charts-line-chart>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="ibox" *ngFor="let site of battery_list | evenodd:'even'">
+                <div class="ibox-title">
+                    <h2>{{site.name}}</h2>
+                </div>
+                <div class="row no-margins monitor-panel">
+                    <div class="col-md-3 no-padding">
+                        <div class="panel panel-success no-margins">
+                            <div class="panel-heading text-center" style="font-size: 30px;font-weight: 700">
+                                {{site.cur_voltage}} V
+                            </div>
+                            <div class="text-center">
+                                <h5>Voltage</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!--# add by hans.shi on 15/Sep/2017  -->
+                    
+                    <div class="col-md-3 no-padding">
+                        <div class="panel panel-success no-margins">
+                            <div class="panel-heading text-center" style="font-size: 30px;font-weight: 700">
+                                {{site.tobedecided}}?
+                            </div>
+                            <div class="text-center">
+                                <h5> ? </h5>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div class="col-md-3 no-padding">
+                        <div class="panel panel-success no-margins">
+                            <div class="panel-heading text-center" style="font-size: 30px;font-weight: 700">
+                                {{site.solar_power}} W
+                            </div>
+                            <div class="text-center">
+                                <h5>Solar Power</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 no-padding">
+                        <div class="panel panel-warning no-margins">
+                            <div class="panel-heading text-center" style="font-size: 30px;font-weight: 700">
+                                {{site.solar_current}} A
+                            </div>
+                            <div class="text-center">
+                                <h5>Solar Current</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- hans.shi finish  15/Sep/2017 #-->
+                    <div class="col-md-3 no-padding">
+                        <div class="panel panel-warning no-margins">
+                            <div class="panel-heading text-center" style="font-size: 30px;font-weight: 700">
+                                {{site.cur_current}} A
+                            </div>
+                            <div class="text-center">
+                                <h5>Current</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 no-padding">
+                        <div class="panel panel-primary no-margins">
+                            <div class="panel-heading text-center" style="font-size: 30px;font-weight: 700">
+                                {{site.soc}} %
+                            </div>
+                            <div class="text-center">
+                                <h5>State of Charge</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 no-padding">
+                        <div class="panel panel-danger no-margins">
+                            <div class="panel-heading text-center" style="font-size: 30px;font-weight: 700">
+                                {{site.relay? 'ON':'OFF'}}
+                            </div>
+                            <div class="text-center">
+                                <h5>Relay</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!--add by hans.shi on 15/Sep/2017  -->
+                    <div class="col-md-3 no-padding">
+                        <div class="panel panel-danger no-margins">
+                            <div class="panel-heading text-center" style="font-size: 30px;font-weight: 700">
+                                {{site.ip_device? 'ON':'OFF'}}
+                            </div>
+                            <div class="text-center">
+                                <h5>IP Device</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- hans.shi finish  15/Sep/2017 #-->
+                </div>
+                <div class="ibox-content" *ngIf="site.data" style="height: 300px">
+                    <ngx-charts-line-chart
+                            [scheme]="colorScheme"
+                            [results]="site.data"
+                            [xAxis]="true"
+                            [yAxis]="true"
+                            [legend]="true"
+                            [autoScale]="false"
+                            [timeline]="true">
+                    </ngx-charts-line-chart>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
