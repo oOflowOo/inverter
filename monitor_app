@@ -1,0 +1,22 @@
+
+#!/bin/bash
+#
+# The script for starting up the node.js for monitor app
+#
+# chkconfig: 2345 80 30
+. /etc/init.d/functions
+SERVICE_NAME=monitor
+
+case "$1" in
+        "start")
+				cd /var/www/html/ng-monitor/
+                node ng-monitor.js >log.log 2>err.log &
+                ;;
+        "stop")
+                pkill -f ng-monitor.js
+                ;;
+        "status")
+                ps -ef | grep ng-monitor.js
+                ;;
+esac
+exit 0

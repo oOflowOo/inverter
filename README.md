@@ -1,6 +1,3 @@
-# inverter
-a new page for a combination of bmv, mppt, n inverter
-
 # Admin panel and UI Components for Angular.
 
 Start your own Angular project with ng-dashboard in minutes!
